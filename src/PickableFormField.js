@@ -9,13 +9,10 @@ const React = require('react');
 const FormField = require('uxcore-form-field');
 const Pickable = require('uxcore-pickable');
 const assign = require('object-assign');
-const isEqual = require('lodash/isEqual');
-const NattyFetch = require('natty-fetch/dist/natty-fetch.pc');
-const Promise = require('lie');
 
 const { Item } = Pickable;
-const PickableOptions = ['onChange','value','max','type','multiple'];
-const ItemOptions = ['value','disabled','number','max'];
+const PickableOptions = ['onChange','value','type','multiple'];
+const ItemOptions = ['value','disabled','number'];
 
 class PickableFormField extends FormField {
 
@@ -28,25 +25,12 @@ class PickableFormField extends FormField {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const me = this;
-    if (!isEqual(nextProps.jsxvalue, me.props.jsxvalue)) {
-      me.setState({
-        value: nextProps.jsxvalue,
-      });
-    }
-  }
-
   addSpecificClass() {
     const me = this;
     if (me.props.jsxprefixCls === 'kuma-uxform-field') {
-      return `${me.props.jsxprefixCls} kuma-select-uxform-field`;
+      return `${me.props.jsxprefixCls} kuma-pickable-uxform-field`;
     }
     return me.props.jsxprefixCls;
-  }
-
-  componentDidMount() {
-    const me = this;
   }
 
   handleChange(value) {
