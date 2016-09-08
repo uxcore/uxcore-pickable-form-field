@@ -77,7 +77,7 @@ PickableFormField.Item = Item;
 PickableFormField.displayName = 'PickableFormField';
 PickableFormField.defaultProps = assign({}, FormField.defaultProps, {
   jsxdata: [],
-  jsxmultiple: false,
+  jsxmultiple: true,
   jsxvalue:[],
   jsxtype:'normal'
 });

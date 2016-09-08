@@ -70,6 +70,11 @@ Yes please! See the [CONTRIBUTING](https://github.com/uxcore/uxcore/blob/master/
 
 ## Props
 
+
 | Name | Type | Required | Default | Comments |
 |---|---|---|---|---|
+|jsxmultiple|boolean|optional|true|是否支持多选|
+|jsxvalue|string/number|required|-|pickable Item 对应的值|
+|jsxtype|string|optional|normal|样式风格，可选值为normal,simple|
+|jsxdata|array|optional|-|传入pickable的数据，例如：[{value:1,disabled:false,number:2,text:'显示文案'}]|
 
