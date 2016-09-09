@@ -8,14 +8,27 @@
 
 const React = require('react');
 const PickableFormField = require('../src');
+const Constants = require('uxcore-const');
+const Form = require('uxcore-form');
+const Button = require('uxcore-button');
 
 class Demo extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      value:[]
+      value: [],
+      mode: Constants.MODE.EDIT
     };
+
+    this.handleModeChange = this.handleModeChange.bind(this);
+  }
+
+  handleModeChange() {
+    let me = this;
+    me.setState({
+        mode: me.state.mode == Constants.MODE.EDIT ? Constants.MODE.VIEW : Constants.MODE.EDIT
+    })
   }
 
   render() {
@@ -37,13 +50,16 @@ class Demo extends React.Component {
 
     return (
       <div>
-        <PickableFormField
-          jsxlabel="test:"
-          jsxname="test"
-          data={itemsData}
-          multiple={true}
-          value={me.state.value}
-          type="hook" />
+        <Form jsxmode={me.state.mode}>
+          <PickableFormField
+            jsxlabel="test:"
+            jsxname="test"
+            data={itemsData}
+            multiple={true}
+            value={me.state.value}
+            type="hook" />
+        </Form>
+        <Button onClick={me.handleModeChange}>切换模式</Button>
       </div>
     );
   }

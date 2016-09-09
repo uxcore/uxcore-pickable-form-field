@@ -9,6 +9,7 @@ const React = require('react');
 const FormField = require('uxcore-form-field');
 const Pickable = require('uxcore-pickable');
 const assign = require('object-assign');
+const Constants = require('uxcore-const');
 
 const { Item } = Pickable;
 const PickableOptions = ['onChange','value','type','multiple'];
@@ -41,14 +42,29 @@ class PickableFormField extends FormField {
   renderField() {
     const me = this;
     let arr = [];
+    let mode = me.props.jsxmode || me.props.mode;
 
-    let Items = me.props.data.map(function(item,index) {
+    if (mode === Constants.MODE.EDIT) {
+
+      let Items = me.props.data.map(function(item,index) {
         return (
             <Item key={index} value={item.value} number={item.num} disabled={item.disable}>{item.text}</Item>
         )
-    })
+      })
 
-    arr.push(<Pickable onChange={me.handleChange} value={me.state.value} type={me.props.type} multiple={me.props.multiple}>{Items}</Pickable>);
+      arr.push(<Pickable onChange={me.handleChange} value={me.state.value} type={me.props.type} multiple={me.props.multiple}>{Items}</Pickable>);
+    } else if (mode === Constants.MODE.VIEW) {
+
+      if(me.state.value){
+        me.state.value.forEach(function(val,index){
+          me.props.data.forEach(function(item,index){
+            if(item.value === val){
+              arr.push(<span style={{marginRight:'10px'}}>{item.text}</span>)
+            }
+          })
+        })
+      }
+    }
 
     return arr;
   }
