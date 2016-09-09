@@ -1,6 +1,6 @@
 {
   "name": "uxcore-pickable-form-field",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "uxcore-pickable-form-field component for uxcore.",
   "repository": "https://github.com/uxcore/uxcore-pickable-form-field.git",
   "author": "FE-Girl",
@@ -38,17 +38,14 @@
     "expect.js": "~0.3.1",
     "uxcore-tools": "0.2.x",
     "uxcore-kuma": "2.x",
+    "uxcore-button": "^0.4.5",
+    "uxcore-form": "^1.7.5",
     "kuma-base": "1.x"
   },
   "dependencies": {
     "classnames": "^2.1.2",
-    "lie": "^3.1.0",
-    "lodash": "^4.15.0",
-    "natty-fetch": "^2.1.2",
     "object-assign": "^4.1.0",
-    "uxcore-button": "^0.4.5",
     "uxcore-const": "0.0.2",
-    "uxcore-form": "^1.7.5",
     "uxcore-form-field": "^0.1.9",
     "uxcore-pickable": "^1.1.1"
   },
