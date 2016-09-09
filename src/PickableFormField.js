@@ -19,7 +19,7 @@ class PickableFormField extends FormField {
   constructor(props) {
     super(props);
     assign(this.state, {
-      value: this.props.jsxvalue,
+      value: this.props.value,
     });
 
     this.handleChange = this.handleChange.bind(this);
@@ -45,13 +45,13 @@ class PickableFormField extends FormField {
     const me = this;
     let arr = [];
 
-    let Items = me.props.jsxdata.map(function(item,index) {
+    let Items = me.props.data.map(function(item,index) {
         return (
             <Item key={index} value={item.value} number={item.num} disabled={item.disable}>{item.text}</Item>
         )
     })
 
-    arr.push(<Pickable onChange={me.handleChange} value={me.state.value} type={me.props.jsxtype} multiple={me.props.jsxmultiple}>{Items}</Pickable>);
+    arr.push(<Pickable onChange={me.handleChange} value={me.state.value} type={me.props.type} multiple={me.props.multiple}>{Items}</Pickable>);
 
     return arr;
   }
@@ -60,16 +60,16 @@ class PickableFormField extends FormField {
 PickableFormField.Item = Item;
 PickableFormField.displayName = 'PickableFormField';
 PickableFormField.defaultProps = assign({}, FormField.defaultProps, {
-  jsxdata: [],
-  jsxmultiple: true,
-  jsxvalue:[],
-  jsxtype:'normal'
+  data: [],
+  multiple: true,
+  value:[],
+  type:'normal'
 });
 PickableFormField.propTypes = assign({}, FormField.propTypes, {
-  jsxdata: React.PropTypes.array,
-  jsxmultiple: React.PropTypes.bool,
-  jsxvalue: React.PropTypes.array,
-  jsxtype: React.PropTypes.string
+  data: React.PropTypes.array,
+  multiple: React.PropTypes.bool,
+  value: React.PropTypes.array,
+  type: React.PropTypes.string
 });;
 
 module.exports = PickableFormField;
