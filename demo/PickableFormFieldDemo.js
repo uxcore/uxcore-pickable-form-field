@@ -40,10 +40,10 @@ class Demo extends React.Component {
         <PickableFormField
           jsxlabel="test:"
           jsxname="test"
-          jsxdata={itemsData}
-          jsxmultiple={true}
-          jsxvalue={me.state.value}
-          jsxtype="hook" />
+          data={itemsData}
+          multiple={true}
+          value={me.state.value}
+          type="hook" />
       </div>
     );
   }
