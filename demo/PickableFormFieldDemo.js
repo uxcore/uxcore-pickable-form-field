@@ -12,6 +12,8 @@ const Constants = require('uxcore-const');
 const Form = require('uxcore-form');
 const Button = require('uxcore-button');
 
+const {Item} = PickableFormField;
+
 class Demo extends React.Component {
 
   constructor(props) {
@@ -22,6 +24,7 @@ class Demo extends React.Component {
     };
 
     this.handleModeChange = this.handleModeChange.bind(this);
+    this.changeFormData = this.changeFormData.bind(this);
   }
 
   handleModeChange() {
@@ -29,6 +32,9 @@ class Demo extends React.Component {
     me.setState({
         mode: me.state.mode == Constants.MODE.EDIT ? Constants.MODE.VIEW : Constants.MODE.EDIT
     })
+  }
+
+  changeFormData(values, name, pass) {
   }
 
   render() {
@@ -41,7 +47,7 @@ class Demo extends React.Component {
     }, {
       text: '条件二',
       value: 2,
-      num: 20
+      num: 200
     }, {
       text: '条件三',
       value: 3,
@@ -50,14 +56,20 @@ class Demo extends React.Component {
 
     return (
       <div>
-        <Form jsxmode={me.state.mode}>
+        <Form jsxmode={me.state.mode} jsxonChange={me.changeFormData}>
           <PickableFormField
             jsxlabel="test:"
             jsxname="test"
-            data={itemsData}
             multiple={true}
+            max={99}
             value={me.state.value}
-            type="hook" />
+            type="simple">
+            {itemsData.map(function(data,index) {
+              return (
+                <Item key={index} value={data.value} number={data.num} disabled={data.disable}>{data.text}</Item>
+              )
+            })}
+            </PickableFormField>
         </Form>
         <Button onClick={me.handleModeChange}>切换模式</Button>
       </div>
