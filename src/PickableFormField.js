@@ -107,6 +107,7 @@ PickableFormField.defaultProps = assign({}, FormField.defaultProps, {
   type:'normal',
   max:99
 });
+
 PickableFormField.propTypes = assign({}, FormField.propTypes, {
   multiple: React.PropTypes.bool,
   value: React.PropTypes.array,
