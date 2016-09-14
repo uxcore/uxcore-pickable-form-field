@@ -75,6 +75,5 @@ Yes please! See the [CONTRIBUTING](https://github.com/uxcore/uxcore/blob/master/
 |---|---|---|---|---|
 |multiple|boolean|optional|true|是否支持多选|
 |value|string/number|required|-|pickable Item 对应的值|
-|type|string|optional|normal|样式风格，可选值为normal,simple|
-|data|array|optional|-|传入pickable的数据，例如：[{value:1,disabled:false,number:2,text:'显示文案'}]|
-
+|type|string|optional|normal|样式风格，可选值为normal,simple,hook|
+|max|number|optional|99|最大显示的数字，超过 max，显示 max+|

@@ -21,6 +21,7 @@ class PickableFormField extends FormField {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
   }
 
   addSpecificClass() {
@@ -39,6 +40,39 @@ class PickableFormField extends FormField {
     me.handleDataChange(value);
   }
 
+  handleItemClick(value) {
+    const me = this;
+    const [...values] = me.props.value;
+    const index = values.indexOf(value);
+    if (!me.props.multiple) {
+        me.props.onChange([value], value);
+        return;
+    }
+    if (index !== -1) {
+        values.splice(index, 1);
+        me.props.onChange(values, value);
+    }
+    else {
+        values.push(value);
+        me.props.onChange(values, value);
+    }
+  }
+
+  renderChildren() {
+    const me = this;
+    const {prefixCls, type, children, value, max} = me.props;
+
+    const rendered = React.Children.map(children, (child) => {
+            return React.cloneElement(child, {
+                prefixCls: `${prefixCls}-item`,
+                type: type,
+                jsxmax: max,
+                onClick: me.handleItemClick,
+            });
+    });
+    return rendered;
+  }
+
   renderField() {
     const me = this;
     let arr = [];
@@ -46,20 +80,15 @@ class PickableFormField extends FormField {
 
     if (mode === Constants.MODE.EDIT) {
 
-      let Items = me.props.data.map(function(item,index) {
-        return (
-            <Item key={index} value={item.value} number={item.num} disabled={item.disable}>{item.text}</Item>
-        )
-      })
+      arr.push(<Pickable onChange={me.handleChange} value={me.state.value} type={me.props.type} multiple={me.props.multiple}>{me.renderChildren()}</Pickable>);
 
-      arr.push(<Pickable onChange={me.handleChange} value={me.state.value} type={me.props.type} multiple={me.props.multiple}>{Items}</Pickable>);
     } else if (mode === Constants.MODE.VIEW) {
 
       if(me.state.value){
         me.state.value.forEach(function(val,index){
-          me.props.data.forEach(function(item,index){
-            if(item.value === val){
-              arr.push(<span style={{marginRight:'10px'}}>{item.text}</span>)
+          React.Children.map(me.props.children,function(child){
+            if(child.props.value === val){
+              arr.push(<span style={{marginRight:'10px'}}>{child.props.children}</span>)
             }
           })
         })
@@ -73,16 +102,16 @@ class PickableFormField extends FormField {
 PickableFormField.Item = Item;
 PickableFormField.displayName = 'PickableFormField';
 PickableFormField.defaultProps = assign({}, FormField.defaultProps, {
-  data: [],
   multiple: true,
   value:[],
-  type:'normal'
+  type:'normal',
+  max:99
 });
 PickableFormField.propTypes = assign({}, FormField.propTypes, {
-  data: React.PropTypes.array,
   multiple: React.PropTypes.bool,
   value: React.PropTypes.array,
-  type: React.PropTypes.string
+  type: React.PropTypes.string,
+  max: React.PropTypes.number
 });;
 
 module.exports = PickableFormField;
