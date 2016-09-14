@@ -52,7 +52,7 @@
   "object-assign": "^4.1.0",
   "uxcore-const": "0.0.2",
   "uxcore-form-field": "^0.1.9",
-  "uxcore-pickable": "~1.1.1"
+  "uxcore-pickable": "^1.1.1"
  },
  "contributors": [],
  "license": "MIT"
