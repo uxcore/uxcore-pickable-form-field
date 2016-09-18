@@ -1,6 +1,6 @@
 {
  "name": "uxcore-pickable-form-field",
- "version": "0.2.0",
+ "version": "0.2.1",
  "description": "uxcore-pickable-form-field component for uxcore.",
  "repository": "https://github.com/uxcore/uxcore-pickable-form-field.git",
  "author": "FE-Girl",
@@ -44,8 +44,8 @@
   "react-dom": "0.14.x",
   "uxcore-button": "~0.4.5",
   "uxcore-form": "~1.7.5",
-  "uxcore-kuma": "~2.x",
-  "uxcore-tools": "~0.2.x"
+  "uxcore-kuma": "2.x",
+  "uxcore-tools": "0.2.x"
  },
  "dependencies": {
   "classnames": "^2.1.2",
