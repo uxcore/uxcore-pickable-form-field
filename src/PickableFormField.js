@@ -62,11 +62,12 @@ class PickableFormField extends FormField {
     const me = this;
     const {prefixCls, type, children, value, max} = me.props;
 
-    const rendered = React.Children.map(children, (child) => {
+    const rendered = React.Children.map(children, (child, index) => {
             return React.cloneElement(child, {
                 prefixCls: `${prefixCls}-item`,
                 type: type,
                 jsxmax: max,
+                key: index,
                 onClick: me.handleItemClick,
             });
     });
@@ -80,15 +81,15 @@ class PickableFormField extends FormField {
 
     if (mode === Constants.MODE.EDIT) {
 
-      arr.push(<Pickable onChange={me.handleChange} value={me.state.value} type={me.props.type} multiple={me.props.multiple}>{me.renderChildren()}</Pickable>);
+      arr.push(<Pickable key={0} onChange={me.handleChange} value={me.state.value} type={me.props.type} multiple={me.props.multiple}>{me.renderChildren()}</Pickable>);
 
     } else if (mode === Constants.MODE.VIEW) {
 
       if(me.state.value){
         me.state.value.forEach(function(val,index){
-          React.Children.map(me.props.children,function(child){
+          React.Children.map(me.props.children,function(child, i){
             if(child.props.value === val){
-              arr.push(<span style={{marginRight:'10px'}}>{child.props.children}</span>)
+              arr.push(<span key={i} style={{marginRight:'10px'}}>{child.props.children}</span>)
             }
           })
         })
