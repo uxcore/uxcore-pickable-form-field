@@ -64,7 +64,7 @@ class Demo extends React.Component {
             max={99}
             value={me.state.value}
             type="simple">
-            {itemsData.map(function(data,index) {
+            {itemsData.map(function(data, index) {
               return (
                 <Item key={index} value={data.value} number={data.num} disabled={data.disable}>{data.text}</Item>
               )
