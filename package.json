@@ -1,6 +1,6 @@
 {
  "name": "uxcore-pickable-form-field",
- "version": "0.2.2",
+ "version": "0.2.3",
  "description": "uxcore-pickable-form-field component for uxcore.",
  "repository": "https://github.com/uxcore/uxcore-pickable-form-field.git",
  "author": "FE-Girl",
@@ -15,9 +15,10 @@
   "pub": "uxcore-tools run pub",
   "dep": "uxcore-tools run dep",
   "tnpm-dep": "uxcore-tools run tnpm-dep",
-  "saucelabs": "uxcore-tools run saucelabs",
   "chrome": "uxcore-tools run chrome",
-  "browsers": "uxcore-tools run browsers"
+  "browsers": "uxcore-tools run browsers",
+  "saucelabs": "uxcore-tools run saucelabs",
+  "update": "uxcore-tools run update"
  },
  "bugs": {
   "url": "http://github.com/uxcore/uxcore-pickable-form-field/issues"
@@ -32,11 +33,6 @@
  "devDependencies": {
   "console-polyfill": "^0.2.2",
   "es5-shim": "^4.5.8",
-  "eslint": "^3.5.0",
-  "eslint-config-airbnb": "^11.1.0",
-  "eslint-plugin-import": "^1.15.0",
-  "eslint-plugin-jsx-a11y": "^2.2.2",
-  "eslint-plugin-react": "^6.2.1",
   "expect.js": "~0.3.1",
   "kuma-base": "1.x",
   "react": "0.14.x",
