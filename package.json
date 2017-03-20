@@ -1,6 +1,6 @@
 {
  "name": "uxcore-pickable-form-field",
- "version": "0.2.3",
+ "version": "0.3.0",
  "description": "uxcore-pickable-form-field component for uxcore.",
  "repository": "https://github.com/uxcore/uxcore-pickable-form-field.git",
  "author": "FE-Girl",
@@ -48,7 +48,7 @@
   "object-assign": "^4.1.0",
   "uxcore-const": "~0.0.2",
   "uxcore-form-field": "~0.1.9",
-  "uxcore-pickable": "~1.1.1"
+  "uxcore-pickable": "^2.0.0"
  },
  "contributors": [],
  "license": "MIT"
