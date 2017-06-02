@@ -1,5 +1,9 @@
 # history
 
+## 0.4.1
+
+* `CHANGED` supoort `enableFold`, `defaultfoldItems`, `maxLines` and `locale`
+
 ## 0.4.0
 
 * `CHANGED` update `uxcore-pickable` to ^3.0.0

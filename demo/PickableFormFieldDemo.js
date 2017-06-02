@@ -31,7 +31,7 @@ class Demo extends React.Component {
   handleModeChange() {
     const me = this;
     me.setState({
-      mode: me.state.mode == Constants.MODE.EDIT ? Constants.MODE.VIEW : Constants.MODE.EDIT,
+      mode: me.state.mode === Constants.MODE.EDIT ? Constants.MODE.VIEW : Constants.MODE.EDIT,
     });
   }
 
@@ -53,6 +53,26 @@ class Demo extends React.Component {
       text: '条件三',
       value: 3,
       disable: true,
+    }, {
+      text: '条件三',
+      value: 4,
+      disable: true,
+    }, {
+      text: '条件三',
+      value: 5,
+      disable: true,
+    }, {
+      text: '条件三',
+      value: 6,
+      disable: true,
+    }, {
+      text: '条件三',
+      value: 7,
+      disable: true,
+    }, {
+      text: '条件三',
+      value: 8,
+      disable: true,
     }];
 
     return (
@@ -64,9 +84,12 @@ class Demo extends React.Component {
             multiple
             max={99}
             type="simple"
+            enableFold
+            defaultfoldItems={false}
+            maxLines={2}
           >
             {itemsData.map((data, index) => (
-              <Item key={index} value={data.value} number={data.num} disabled={data.disable}>{data.text}</Item>
+              <Item key={index} value={data.value} disabled={data.disable}>{data.text}</Item>
             ))}
           </PickableFormField>
         </Form>

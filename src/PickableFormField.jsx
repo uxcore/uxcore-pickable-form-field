@@ -13,6 +13,8 @@ const Constants = require('uxcore-const');
 
 const { Item } = Pickable;
 
+const pickableProps = ['type', 'multiple', 'enableFold', 'defaultfoldItems', 'maxLines', 'locale'];
+
 class PickableFormField extends FormField {
 
   constructor(props) {
@@ -55,13 +57,16 @@ class PickableFormField extends FormField {
     const mode = me.props.jsxmode || me.props.mode;
 
     if (mode === Constants.MODE.EDIT) {
+      const propsObj = {};
+      pickableProps.forEach((prop) => {
+        propsObj[prop] = me.props[prop];
+      });
       arr.push(
         <Pickable
           key={0}
           onChange={me.handleChange}
           value={me.state.value}
-          type={me.props.type}
-          multiple={me.props.multiple}
+          {...propsObj}
         >{me.renderChildren()}</Pickable>
       );
     } else if (mode === Constants.MODE.VIEW) {
