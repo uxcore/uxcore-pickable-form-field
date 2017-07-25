@@ -1,5 +1,9 @@
 # history
 
+## 0.4.2
+
+* `CHANGED` update formfield version
+
 ## 0.4.1
 
 * `CHANGED` supoort `enableFold`, `defaultfoldItems`, `maxLines` and `locale`
