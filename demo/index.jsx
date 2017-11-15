@@ -6,8 +6,9 @@
  * All rights reserved.
  */
 
-const ReactDOM = require('react-dom');
-const React = require('react');
-const Demo = require('./PickableFormFieldDemo');
+import ReactDOM from 'react-dom';
+import React from 'react';
+import Demo from './PickableFormFieldDemo';
+
 ReactDOM.render(<Demo />, document.getElementById('UXCoreDemo'));
 

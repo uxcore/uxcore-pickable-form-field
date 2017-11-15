@@ -5,18 +5,18 @@
  * Copyright 2015-2016, Uxcore Team, Alinw.
  * All rights reserved.
  */
-const React = require('react');
-const FormField = require('uxcore-form-field');
-const Pickable = require('uxcore-pickable');
-const assign = require('object-assign');
-const Constants = require('uxcore-const');
+import React from 'react';
+import PropTypes from 'prop-types';
+import FormField from 'uxcore-form-field';
+import Pickable from 'uxcore-pickable';
+import assign from 'object-assign';
+import Constants from 'uxcore-const';
 
 const { Item } = Pickable;
 
 const pickableProps = ['type', 'multiple', 'enableFold', 'defaultfoldItems', 'maxLines', 'locale'];
 
 class PickableFormField extends FormField {
-
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -95,10 +95,10 @@ PickableFormField.defaultProps = assign({}, FormField.defaultProps, {
 });
 
 PickableFormField.propTypes = assign({}, FormField.propTypes, {
-  multiple: React.PropTypes.bool,
-  value: React.PropTypes.array,
-  type: React.PropTypes.string,
-  max: React.PropTypes.number,
+  multiple: PropTypes.bool,
+  value: PropTypes.array,
+  type: PropTypes.string,
+  max: PropTypes.number,
 });
 
-module.exports = PickableFormField;
+export default PickableFormField;

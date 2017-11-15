@@ -6,17 +6,16 @@
  * All rights reserved.
  */
 
-const React = require('react');
-const PickableFormField = require('../src');
-const Constants = require('uxcore-const');
-const Form = require('uxcore-form');
-const Button = require('uxcore-button');
-const Pickable = require('uxcore-pickable');
+import React from 'react';
+import Constants from 'uxcore-const';
+import Form from 'uxcore-form/build/Form';
+import Button from 'uxcore-button';
+import Pickable from 'uxcore-pickable';
+import PickableFormField from '../src';
 
 const { Item } = PickableFormField;
 
 class Demo extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -116,4 +115,4 @@ class Demo extends React.Component {
   }
 }
 
-module.exports = Demo;
+export default Demo;

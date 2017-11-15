@@ -1,5 +1,9 @@
 # history
 
+## 0.4.3
+
+* `CHANGED` fit React@15
+
 ## 0.4.2
 
 * `CHANGED` update formfield version
