@@ -1,7 +1,7 @@
 import expect from 'expect.js';
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import PickableFormField from '../src';
 import Form from 'uxcore-form/build/Form';
 import Constants from 'uxcore-const';
