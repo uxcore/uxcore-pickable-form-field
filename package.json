@@ -52,7 +52,7 @@
   "object-assign": "^4.1.0",
   "prop-types": "15.x",
   "uxcore-const": "^1.0.0",
-  "uxcore-form-field": "^0.2.0",
+  "uxcore-form-field": "^0.3.0",
   "uxcore-pickable": "^3.0.0"
  },
  "contributors": [],
