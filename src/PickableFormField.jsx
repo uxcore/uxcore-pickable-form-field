@@ -65,7 +65,7 @@ class PickableFormField extends FormField {
         <Pickable
           key={0}
           onChange={me.handleChange}
-          value={me.state.value}
+          value={me.state.value || []}
           {...propsObj}
         >{me.renderChildren()}</Pickable>
       );

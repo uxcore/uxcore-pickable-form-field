@@ -1,5 +1,9 @@
 # history
 
+## 0.5.1
+
+* `CHANGED` ensure the value type passed to Pickable
+
 ## 0.5.0
 
 * `CHANGED` fit React@16
