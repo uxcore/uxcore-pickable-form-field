@@ -1,5 +1,9 @@
 # history
 
+## 0.5.2
+
+* `CHANGED` update `uxcore-pickable` to `^4.0.0`
+
 ## 0.5.1
 
 * `CHANGED` ensure the value type passed to Pickable
