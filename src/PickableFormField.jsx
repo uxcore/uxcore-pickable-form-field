@@ -40,7 +40,9 @@ class PickableFormField extends FormField {
 
   renderChildren() {
     const me = this;
-    const { prefixCls, type, children, max } = me.props;
+    const {
+      prefixCls, type, children, max,
+    } = me.props;
 
     const rendered = React.Children.map(children, (child, index) => React.cloneElement(child, {
       prefixCls: `${prefixCls}-item`,
@@ -67,14 +69,21 @@ class PickableFormField extends FormField {
           onChange={me.handleChange}
           value={me.state.value || []}
           {...propsObj}
-        >{me.renderChildren()}</Pickable>
+        >
+          {me.renderChildren()}
+
+        </Pickable>,
       );
     } else if (mode === Constants.MODE.VIEW) {
       if (me.state.value) {
         me.state.value.forEach((val) => {
           React.Children.map(me.props.children, (child, i) => {
             if (child.props.value === val) {
-              arr.push(<span key={i} style={{ marginRight: '10px' }}>{child.props.children}</span>);
+              arr.push(
+                <span key={i} style={{ marginRight: '10px' }}>
+                  {child.props.children}
+                </span>,
+              );
             }
           });
         });
