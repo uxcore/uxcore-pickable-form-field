@@ -14,7 +14,7 @@ import Constants from 'uxcore-const';
 
 const { Item } = Pickable;
 
-const pickableProps = ['type', 'multiple', 'enableFold', 'defaultfoldItems', 'maxLines', 'locale'];
+const pickableProps = ['type', 'multiple', 'enableFold', 'defaultfoldItems', 'maxLines', 'locale', 'simpleValueInSingleMode'];
 
 class PickableFormField extends FormField {
   constructor(props) {
